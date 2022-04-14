@@ -2,6 +2,11 @@ getHole = index => document.getElementById(`hole${index}`);
 let dead = document.getElementById('dead');
 let lost = document.getElementById('lost');
 let countDead, countLost;
+function endGame(text) {
+	dead.textContent = 0;
+	lost.textContent = 0;
+	alert(text);
+}
 
 for (let i = 1; i < 10; i++) {
 	let hole = getHole(i);
@@ -17,15 +22,11 @@ for (let i = 1; i < 10; i++) {
 			lost.textContent = countLost;
 		}
 		if (countDead === 10) {
-			dead.textContent = 0;
-			lost.textContent = 0;
-			alert('Вы победили кротов!');
+			endGame('Вы победили кротов!');
 		}
 		if (countLost === 5) {
-			dead.textContent = 0;
-			lost.textContent = 0;
-			alert('Вы проиграли, Кроты победили!');
+			endGame('Вы проиграли, Кроты победили!');
 		}
-
 	}
 }
+
